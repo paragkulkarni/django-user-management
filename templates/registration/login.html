@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Login</h3>
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      <p>{{ form.username.label }}</p>
+      <p>{{ form.username }}</p>
+      <p>{{ form.password.label }}</p>
+      <p>{{ form.password}}</p>
+      <p>
+        <button type="submit" [disabled]="!form.form.valid">
+          Login
+        </button>
+      </p>
+    </form>
+  </body>
+</html>
