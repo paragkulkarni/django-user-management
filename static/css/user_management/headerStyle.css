@@ -1,0 +1,36 @@
+.header-layout {
+  border: 2px solid yellowgreen;
+}
+
+.profile-photo-style {
+  position: relative;
+  top: 10px;
+  border: 2px solid green;
+  width: 120px;
+  height: 120px;
+}
+
+.col {
+  padding-right: 0;
+  padding-left: 0;
+}
+.col-8 {
+  padding-right: 0;
+  padding-left: 0;
+}
+.address-info-layout {
+  position: relative;
+  top: 10px;
+}
+.column-layout {
+  border: 2px solid yellowgreen;
+}
+.column-two-layout {
+  border: 2px solid green;
+}
+
+.icon-layout {
+  position: absolute;
+  right: 0 !important;
+  padding: 5px !important;
+}

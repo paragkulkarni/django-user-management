@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from user_management import views
+from market_communication import views as market_communication_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.indexView),
+    path('index/', market_communication_views.indexView),
     path('register/', views.registerView),
     path('accounts/', include('django.contrib.auth.urls'))
 ]

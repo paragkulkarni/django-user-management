@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/user_management/headerStyle.css' %}"
+    />
+    <title>M-COM</title>
+  </head>
+  <body>
+    <div class="container-fluid header-layout">
+      <div class="row">
+        <div class="col-9">
+          <h1>header</h1>
+        </div>
+        <div class="col">
+          <div class="icon-layout">
+            <a href="#" class="btn btn-info btn-lg">
+              <span class="glyphicon glyphicon-user"></span> User
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block content %} {% endblock %}
+  </body>
+</html>
