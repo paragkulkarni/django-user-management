@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login
 # Create your views here.
 
 
+def profileView(request):
+    return render(request, 'user_management/profile.html', {'form': ''})
+
+
 def registerView(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -17,4 +21,4 @@ def registerView(request):
             return redirect('/index/')
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'user_management/register.html', {'form': form})

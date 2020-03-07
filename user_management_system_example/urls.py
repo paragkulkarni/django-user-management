@@ -21,6 +21,7 @@ from market_communication import views as market_communication_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', market_communication_views.indexView),
+    path('profile/', views.profileView),
     path('register/', views.registerView),
     path('accounts/', include('django.contrib.auth.urls'))
 ]
