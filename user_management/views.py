@@ -1,12 +1,19 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import authenticate, UserCreationForm
 from django.contrib.auth import authenticate, login
+from .forms import ProfileForm
 
 # Create your views here.
 
 
 def profileView(request):
-    return render(request, 'user_management/profile.html', {'form': ''})
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid:
+            form.save()
+    else:
+        form = ProfileForm()
+    return render(request, 'user_management/profile.html', {'form': form})
 
 
 def registerView(request):

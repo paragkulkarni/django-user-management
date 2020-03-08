@@ -20,7 +20,8 @@
             </button>
           </div>
           <div style="position: relative; top: 30px; background-color: white;">
-            <form>
+            <form method="POST">
+              {% csrf_token %}
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">
                   Store Name
@@ -30,6 +31,7 @@
                     class="form-control"
                     type="text"
                     placeholder="Store name"
+                    id="id_store_name"
                   />
                 </div>
               </div>
@@ -42,6 +44,7 @@
                     class="form-control"
                     type="text"
                     placeholder="Owner name"
+                    id="id_owner_name"
                   />
                 </div>
               </div>
@@ -52,8 +55,8 @@
                 <div class="col-sm-9">
                   <input
                     class="form-control"
-                    type="text"
                     placeholder="Store Registration No"
+                    id="id_registered_number"
                   />
                 </div>
               </div>
@@ -62,11 +65,7 @@
                   Address
                 </label>
                 <div class="col-sm-9">
-                  <textarea
-                    class="form-control"
-                    rows="5"
-                    id="comment"
-                  ></textarea>
+                  <input type="text" class="form-control" id="id_address" />
                 </div>
               </div>
               <button
