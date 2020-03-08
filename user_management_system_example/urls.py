@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import include, path
 from user_management import views
 from market_communication import views as market_communication_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +27,4 @@ urlpatterns = [
     path('profile/', views.profileView),
     path('register/', views.registerView),
     path('accounts/', include('django.contrib.auth.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
