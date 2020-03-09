@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import authenticate, UserCreationForm
 from django.contrib.auth import authenticate, login
 from .forms import ProfileForm, OwnerForm, StoreForm
-from .models import Owner
+from .models import Owner, Store
 
 # Create your views here.
 
@@ -27,8 +27,9 @@ def profileView(request):
         ProfileFormIn = ProfileForm()
         OwnerFormIn = OwnerForm()
         StoreFormIn = StoreForm()
-        ownerdata = Owner.objects.all()
-    return render(request, 'user_management/profile.html', {'profile_form': ProfileFormIn, 'owner_form': OwnerFormIn, 'ownerdata': ownerdata, 'store_form': StoreFormIn})
+        ownerdata = Store.objects.all()
+        print(ownerdata)
+    return render(request, 'user_management/profile.html', {'profile_form': ProfileFormIn, 'owner_form': OwnerFormIn, 'store_form': StoreFormIn, 'ownerdata': ownerdata, })
 
 
 def registerView(request):
