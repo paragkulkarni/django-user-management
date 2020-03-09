@@ -1,19 +1,34 @@
 from django.shortcuts import redirect, render
+from django.http import HttpResponse
 from django.contrib.auth.forms import authenticate, UserCreationForm
 from django.contrib.auth import authenticate, login
-from .forms import ProfileForm
+from .forms import ProfileForm, OwnerForm, StoreForm
+from .models import Owner
 
 # Create your views here.
 
 
 def profileView(request):
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid:
-            form.save()
+        ProfileFormIn = ProfileForm(request.POST)
+        OwnerFormIn = OwnerForm(request.POST)
+        StoreFormIn = StoreForm(request.POST)
+
+        if ProfileFormIn.is_valid():
+            ProfileFormIn.save()
+            return HttpResponse('success profile form')
+        elif OwnerFormIn.is_valid():
+            OwnerFormIn.save()
+            return HttpResponse('success ownerform form')
+        elif StoreFormIn.is_valid():
+            StoreFormIn.save()
+            return HttpResponse('success storeform form')
     else:
-        form = ProfileForm()
-    return render(request, 'user_management/profile.html', {'form': form})
+        ProfileFormIn = ProfileForm()
+        OwnerFormIn = OwnerForm()
+        StoreFormIn = StoreForm()
+        ownerdata = Owner.objects.all()
+    return render(request, 'user_management/profile.html', {'profile_form': ProfileFormIn, 'owner_form': OwnerFormIn, 'ownerdata': ownerdata, 'store_form': StoreFormIn})
 
 
 def registerView(request):
