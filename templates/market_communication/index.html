@@ -1,39 +1,42 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container-fluid">
   <div class="row">
-    <div class="col column-layout">
+    <div class="col-2 column-layout">
       <div class="profile-photo-style"></div>
       <div class="address-info-layout">
         <p>Name: Jagdamba Store</p>
         <p>Address: Kothrud, Pune</p>
       </div>
     </div>
-    <div class="col-8 column-two-layout">
-      <div class="column-two-layout">
-        <form>
-          <textarea style="padding-top:30px; width: 100%;"></textarea>
-          <button
-            style="padding: 10px; margin: 0px; border-radius: 10px;
-            background-color:blueviolet; color: white; font-weight: 900; position: relative; left: 90% !important; padding-bottom: 0;"
-          >
-            Post
-          </button>
-        </form>
-      </div>
+    <div class="col-6 column-two-layout">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ product_form.information }}
+        </div>
+        <div class="form-group">
+          {{ product_form.product_image1 }}
+        </div>
+        <div class="form-group">
+          {{ product_form.product_image2 }}
+        </div>
+        <div class="form-group">
+          {{ product_form.product_image3 }}
+        </div>
+        <div class="form-group">
+          {{ product_form.product_image4 }}
+        </div>
+        <button
+          type="submit"
+          style="padding: 10px; margin: 0px; border-radius: 10px;
+            background-color:blueviolet; color: white; font-weight: 900;"
+        >
+          Post
+        </button>
+      </form>
 
       <div class="column-layout">
-        <img
-          style="width: 100px; height: 100px; float: left;"
-          alt="Store IMG"
-        />
-        <div
-          style="float: right;background-color: cornflowerblue;width: 88%; height: 100px;"
-        >
-          <h6>Ponds Powder offer bye 10 get 10</h6>
-          <p>Details MRP: 1000 Offer Price: 700</p>
-          <button>Place order</button>
-          <span>Stock Available or out of stock</span>
-        </div>
+        <h1>Hello post here</h1>
       </div>
     </div>
     <div class="col column-layout">
@@ -51,5 +54,6 @@
       </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+
+{% endblock %}
